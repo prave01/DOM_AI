@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Dom-AI",
+  "version": "1.0.0",
+  "description": "AI powered chrome extention that can edit and redesign the DOM elements",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "sidePanel",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
